@@ -2,7 +2,7 @@ package ex30;
 import java.util.Arrays;
 import java.util.Scanner;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 public class app30 {

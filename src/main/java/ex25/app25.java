@@ -1,11 +1,10 @@
 package ex25;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //A very weak password contains only numbers and is fewer than eight characters.
@@ -21,10 +20,7 @@ import static java.lang.Character.isLetter;
 //Create a passwordValidator function that takes in the password as its argument and returns a value you can evaluate to determine the password strength. Do not have the function return a string—you may need to support multiple languages in the future.
 //Use a single output statement.
 public class app25 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a password and I will tell you how strong it is: ");
-        String one = scanner.nextLine();
+    public static Object strength(String one) {
         int numberOfDigits = 0;
         int numberOfLetters = 0;
         int numberOfSpecials = 0;
@@ -46,34 +42,41 @@ public class app25 {
         {
             if(numberOfDigits == one.length())
             {
-                System.out.println("The password '"+one+"' is a very weak password.");
+                return (String) ("The password '"+one+"' is a very weak password.");
             }
             else if (numberOfLetters == one.length())
             {
-                System.out.println("The password '"+one+"' is a weak password.");
+                return (String)("The password '"+one+"' is a weak password.");
             }
             else
             {
-                System.out.println("The password '"+one+"' is a weasely password.");
+                return (String)("The password '"+one+"' is a weasely password.");
             }
         }
         else
         {
             if(numberOfDigits > 0 && numberOfLetters > 0 && numberOfSpecials > 0)
             {
-                System.out.println("The password '"+one+"' is a very strong password.");
+                return (String)("The password '"+one+"' is a very strong password.");
 
             }
             else if (numberOfDigits > 0 && numberOfLetters > 0)
             {
-                System.out.println("The password '"+one+"' is a strong password.");
+                return (String)("The password '"+one+"' is a strong password.");
             }
             else
             {
-                System.out.println("The password '"+one+"' is a weasely password.");
+                return (String)("The password '"+one+"' is a weasely password.");
             }
 
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a password and I will tell you how strong it is: ");
+        String one = scanner.nextLine();
+        System.out.println(strength(one));
     }
 }
 

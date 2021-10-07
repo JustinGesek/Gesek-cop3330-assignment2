@@ -3,7 +3,7 @@ package ex40;
 import java.util.*;
 import java.lang.Math;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //Name                | Position          | Separation Date

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //The first name must be filled in.
@@ -33,6 +33,33 @@ import static java.lang.Character.isLetter;
 //Enter the employee ID: TK-4321
 //There were no errors found.
 public class app27 {
+    public static String checkAddress(String firstName, String lastName, String iD, int zip){
+        if(firstName.length() < 2)
+        {
+            if(firstName.length() == 0)
+            {
+                return("The first name must be filled in.");
+            }
+            return("The first name must be at least 2 characters long.");
+        }
+        if(lastName.length() < 2)
+        {
+            return("The last name must be at least 2 characters long.");
+        }
+        if(iD.length() != 7 ||
+                !isLetter(iD.charAt(0)) || !isLetter(iD.charAt(1)) ||
+                iD.charAt(2) != '-' ||
+                !isDigit(iD.charAt(3)) || !isDigit(iD.charAt(4)) || !isDigit(iD.charAt(5)) || !isDigit(iD.charAt(6)))
+        {
+            return("The employee ID must be in the format of AA-1234.");
+        }
+        if(String.valueOf(zip).length() != 5) {
+            return ("The zipcode must be a 5 digit number.");
+        }
+        {
+            return("There were no errors found.");
+        }
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the first name: ");
@@ -46,42 +73,7 @@ public class app27 {
 
         System.out.println("Enter the ZIP code: ");
         int zip = scanner.nextInt();
-        boolean errors = false;
-        if(firstName.length() < 2)
-        {
-            errors = true;
-            System.out.println("The first name must be at least 2 characters long.");
-            if(firstName.length() == 0)
-            {
-                System.out.println("The first name must be filled in.");
-            }
-        }
-        if(lastName.length() < 2)
-        {
-            errors = true;
-            System.out.println("The last name must be at least 2 characters long.");
-            if(firstName.length() == 0)
-            {
-                System.out.println("The last name must be filled in.");
-            }
-        }
-        if(iD.length() != 7 ||
-                !isLetter(iD.charAt(0)) || !isLetter(iD.charAt(1)) ||
-                iD.charAt(2) != '-' ||
-                !isDigit(iD.charAt(3)) || !isDigit(iD.charAt(4)) || !isDigit(iD.charAt(5)) || !isDigit(iD.charAt(6)))
-                    {
-                        errors = true;
-                        System.out.println("The employee ID must be in the format of AA-1234.");
-                    }
-        if(String.valueOf(zip).length() != 5)
-        {
-            errors = true;
-            System.out.println("The zipcode must be a 5 digit number.");
-        }
-        if(!errors)
-        {
-            System.out.println("There were no errors found.");
-        }
+        System.out.println(checkAddress(firstName, lastName, iD, zip));
                 }
             }
 

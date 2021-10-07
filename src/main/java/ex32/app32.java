@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.lang.Math;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //Let's play Guess the Number!

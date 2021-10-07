@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.lang.Math;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //Create a small program that contains a list of employee names. Print out the list of names when the program runs the first time. Prompt for an employee name and remove that specific name from the list of names. Display the remaining employees, each on its own line.
@@ -28,6 +28,16 @@ import java.lang.Math;
 //Constraint
 //Use an array or list to store the names.
 public class app34 {
+    public static String removeEmployee(ArrayList<String> employees, String toRemove)
+    {
+        try {
+            employees.remove(toRemove);
+        }catch (IndexOutOfBoundsException e){return("Name doesn't exist");}
+        StringBuilder result = new StringBuilder();
+        employees.forEach((employee)->
+                result.append(String.format("%s\n", employee)));
+        return result.toString();
+    }
     public static void main(String[] args) {
         ArrayList<String> employees = new ArrayList <String>();
         employees.add("John Smith");
@@ -41,10 +51,6 @@ public class app34 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter an employee name to remove: ");
         String toRemove = scanner.nextLine();
-        try {
-            employees.remove(toRemove);
-        }catch (IndexOutOfBoundsException e){System.out.println("Name doesn't exist");}
-        employees.forEach((employee)->
-                System.out.println(employee));
+        System.out.print(removeEmployee(employees, toRemove));
     }
 }

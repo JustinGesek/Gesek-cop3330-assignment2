@@ -2,7 +2,7 @@ package ex31;
 import java.util.Arrays;
 import java.util.Scanner;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //TargetHeartRate = (((220 − age) − restingHR) × intensity) + restingHR
@@ -23,6 +23,11 @@ import java.util.Scanner;
 //Ensure that the heart rate and age are entered as numbers. Don’t allow the user to continue without entering valid inputs.
 //Display the results in a tabular format.
 public class app31 {
+    public static String targetHeartRate(int intensity, int age, int heartRate)
+    {
+        return String.format("%d%%          | %3.0f bpm", intensity, (((220.0 - age) - heartRate) * (intensity / 100.0)) + heartRate);
+
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your age: ");
@@ -34,7 +39,7 @@ public class app31 {
         System.out.println("-------------|--------\n");
         for(int intensity = 55; intensity <= 95; intensity+=5)
         {
-            System.out.printf("%d%%          | %3.0f bpm\n", intensity, (((220.0-age)-heartRate)*(intensity/100.0))+heartRate);
+            System.out.println(targetHeartRate(intensity,age,heartRate));
         }
     }
 }

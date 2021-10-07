@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.lang.Math;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //The program should print the average time (mean), the minimum time, the maximum time, and the population standard deviation.
@@ -29,6 +29,14 @@ import java.lang.Math;
 //Be sure to properly ignore any invalid inputs.
 //Keep the input separate from the processing and the output.
 public class app36 {
+    public static String stat(ArrayList<Double> numbers){
+        StringBuilder result = new StringBuilder();
+        result.append(String.format("%s\n","The average is " + average(numbers)));
+        result.append(String.format("%s\n","The minimum is " + min(numbers)));
+        result.append(String.format("%s\n","The maximum is " + max(numbers)));
+        result.append(String.format("%s\n","The standard deviation is "+ STD(numbers)));
+        return result.toString();
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Double> numbers = new ArrayList<Double>();
@@ -51,11 +59,7 @@ public class app36 {
             }
         }
         System.out.println("");
-        System.out.println("The average is " + average(numbers));
-        System.out.println("The minimum is " + min(numbers));
-        System.out.println("The maximum is " + max(numbers));
-        System.out.println("The standard deviation is "+ STD(numbers));
-
+        System.out.print(stat(numbers));
     }
 
     public static double average(ArrayList<Double> v) {

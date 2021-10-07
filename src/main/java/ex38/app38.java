@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.lang.Math;
 /*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 Justin Gesek
  */
 //Create a program that prompts for a list of numbers, separated by spaces. Have the program print out a new list containing only the even numbers.
@@ -31,20 +31,17 @@ public class app38 {
             numbers.add(nscanner.nextInt());
         }
         numbers = filterEvenNumbers(numbers);
-        for (int i = 0; i < numbers.size(); ++i)
-        {
-            System.out.print(" "+numbers.get(i));
+        for (Integer number : numbers) {
+            System.out.print(" " + number);
         }
         System.out.println("");
     }
     static ArrayList<Integer> filterEvenNumbers(ArrayList<Integer> numbers)
     {
         ArrayList<Integer> evens = new ArrayList<Integer>();
-        for (int i = 0; i < numbers.size(); ++i)
-        {
-            if (numbers.get(i) %2 == 0)
-            {
-                evens.add(numbers.get(i));
+        for (Integer number : numbers) {
+            if (number % 2 == 0) {
+                evens.add(number);
             }
         }
         return evens;
